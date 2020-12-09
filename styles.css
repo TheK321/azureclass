@@ -26,3 +26,15 @@ main > h1 {
 main > h3{
   font-family: 'Poppins', sans-serif;
 }
+
+#circulo{
+
+  animation: spin 10s linear infinite;
+  
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}

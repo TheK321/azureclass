@@ -13,20 +13,27 @@
     <h1 id="bienvenida"></h1>
     <h4>
       Soy un estudiante de la carrera de Ingeniería en Sistemas Computacionales en busca de aprender nuevas cosas en
-      este gran mundo de la tecnología. A continuación incluyo pequeños "juegos" con los que podrás entretenerte un rato
-      (:</h4>
+      este gran mundo de la tecnología. A continuación incluyo pequeñas "utilidades" con los que podrás entretenerte un
+      rato o hasta tener la respuesta a tu tarea 😲😂</h4>
 
 
     <section>
-      <div class="container">
-        <h3>Juego: Adivina el número</h3>
-        <form action="#">
-          <label>¿Podrás adivinarlo? ¡Inténtalo! Introduce un número entre 1 y 50:</label>
-          <input type="number" id="num">
-          <button type="button" onclick="checar()">Comprobar</button>
-        </form>
-        <p id="resultado"></p>
-      </div>
+
+      <h3>Juego: Adivina el número</h3>
+      <form action="#">
+        <label>¿Podrás adivinarlo? ¡Inténtalo! Introduce un número entre 1 y 50:</label>
+        <input type="number" id="num">
+        <button type="button" onclick="checar()">Comprobar</button>
+      </form>
+      <p id="resultado"></p>
+
+      <h3>Utilidad: Cálculo de la velocidad angular</h3>
+      Periodo de revolución(segundos): <input id="rev" type="number" required /> <br>
+      <button type="button" id="calculaw" onclick="vel()">Calcular ω</button>
+      <div id="salida"></div>
+      <canvas id="circulo" width="600" height="600">
+        <p>Canvas</p>
+      </canvas>
     </section>
 
 
@@ -37,7 +44,7 @@
     <script type="text/javascript">
 
       var nombre = window.prompt('¿Cómo te llamas?');
-      document.getElementById("bienvenida").innerHTML = '¡Hola ' + nombre + ', soy TheK321!'
+      document.getElementById("bienvenida").innerHTML = '¡Hola ' + nombre + ', aquí TheK321!'
       var n, rand, texto;
       generar();
       function checar() {
@@ -57,6 +64,51 @@
         document.getElementById("resultado").innerHTML = 'Nuevo número generado.';
       }
 
+    </script>
+
+    <script type="text/javascript">
+      var rev;
+      function vel() {
+        rev = document.getElementById("rev").value;
+        var vel = (2 * Math.PI) / rev;
+        document.getElementById("salida").innerHTML=' La velocidad angular es: ' + vel+' radianes por segundo.';
+
+
+        var hojaPapel = document.getElementById("circulo");
+        var lapiz = hojaPapel.getContext("2d");
+        var centrox = 300;
+        var centroy = 300;
+
+        lapiz.beginPath();
+        lapiz.setLineDash([5, 5]);
+        lapiz.arc(centrox, centroy, 150, 0, 2 * Math.PI, true);
+        lapiz.lineWidth = 5;
+        lapiz.stroke();
+        lapiz.closePath();
+
+        lapiz.beginPath();
+        lapiz.setLineDash([0, 0]);
+        var grd = lapiz.createRadialGradient(centrox, centroy, 0, centrox + 100, centroy + 100, 180);
+        grd.addColorStop(0, "green");
+        grd.addColorStop(1, "blue");
+
+        lapiz.fillStyle = grd;
+
+        lapiz.arc(centrox, centroy, 80, 0, 2 * Math.PI, true);
+        lapiz.lineWidth = 5;
+        lapiz.fill();
+        lapiz.stroke();
+
+        lapiz.closePath();
+        lapiz.beginPath();
+        lapiz.arc(1.5 * centrox, centroy, 20, 0, 2 * Math.PI, true);
+        lapiz.fillStyle = 'grey';
+        lapiz.fill();
+        lapiz.lineWidth = 5;
+        lapiz.stroke();
+        lapiz.closePath();
+
+      }
     </script>
   </main>
 </body>
