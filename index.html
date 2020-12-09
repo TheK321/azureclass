@@ -34,6 +34,27 @@
       <canvas id="circulo" width="600" height="600">
         <p>Canvas</p>
       </canvas>
+      <h3>Utilidad: Tablas de multiplicar</h3>
+      <p>Ingresa el número del que quieres la tabla</p>
+      <input placeholder="Número" type="number" name="tab" id="tab" />
+      <br />
+      <button onclick="tabladel()">Ver tabla</button>
+      <br />
+
+      <p id="tablademult"></p>
+
+      <script type="text/javascript">
+        function tabladel() {
+          var a = document.getElementById("tab").value;
+          var i = 1;
+          var res = '';
+          for (i = 1; i < 11; i++) {
+            var c = parseInt(a) * parseInt(i);
+            res += a + " x " + i + " = " + c + '</br>';
+          }
+          document.getElementById("tablademult").innerHTML = res;
+        }
+      </script>
     </section>
 
 
@@ -71,7 +92,7 @@
       function vel() {
         rev = document.getElementById("rev").value;
         var vel = (2 * Math.PI) / rev;
-        document.getElementById("salida").innerHTML=' La velocidad angular es: ' + vel+' radianes por segundo.';
+        document.getElementById("salida").innerHTML = ' La velocidad angular es: ' + vel + ' radianes por segundo.';
 
 
         var hojaPapel = document.getElementById("circulo");
