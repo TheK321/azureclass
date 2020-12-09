@@ -10,7 +10,54 @@
 
 <body>
   <main>
-    <h1>¡Hola!, soy TheK321, un estudiante de Ingeniería en Sistemas Computacionales en busca de aprender nuevas cosas en este gran mundo de la tecnología.</h1>
+    <h1 id="bienvenida"></h1>
+    <h4>
+      Soy un estudiante de la carrera de Ingeniería en Sistemas Computacionales en busca de aprender nuevas cosas en
+      este gran mundo de la tecnología. A continuación incluyo pequeños "juegos" con los que podrás entretenerte un rato
+      (:</h4>
+
+
+    <section>
+      <div class="container">
+        <h3>Juego: Adivina el número</h3>
+        <form action="#">
+          <label>¿Podrás adivinarlo? ¡Inténtalo! Introduce un número entre 1 y 50:</label>
+          <input type="number" id="num">
+          <button type="button" onclick="checar()">Comprobar</button>
+        </form>
+        <p id="resultado"></p>
+      </div>
+    </section>
+
+
+    <footer>
+      <p>Mario Martínez Arteaga - 08/12/2020 - Participación en Azure Class: ¡Asegura tu futuro en la nube!.</p>
+    </footer>
+
+    <script type="text/javascript">
+
+      var nombre = window.prompt('¿Cómo te llamas?');
+      document.getElementById("bienvenida").innerHTML = '¡Hola ' + nombre + ', soy TheK321!'
+      var n, rand, texto;
+      generar();
+      function checar() {
+        n = document.getElementById("num").value;
+        if (rand == n) {
+          texto = "¡Acertaste! El número es " + rand + '<br><button type="button" onclick="generar()">Volver a jugar</button>';
+        } else if (n < rand) {
+          texto = "Intenta con un número más alto";
+        } else {
+          texto = "Intenta con un número más bajo";
+        }
+        document.getElementById("resultado").innerHTML = texto;
+      }
+
+      function generar() {
+        rand = parseInt(Math.random() * 50) + 1;
+        document.getElementById("resultado").innerHTML = 'Nuevo número generado.';
+      }
+
+    </script>
   </main>
 </body>
 
