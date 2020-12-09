@@ -11,10 +11,10 @@
 <body>
   <main>
     <h1 id="bienvenida"></h1>
-    <h4>
-      Soy un estudiante de la carrera de Ingeniería en Sistemas Computacionales en busca de aprender nuevas cosas en
-      este gran mundo de la tecnología. A continuación incluyo pequeñas "utilidades" con los que podrás entretenerte un
-      rato o hasta tener la respuesta a tu tarea 😲😂</h4>
+    <p class="desc">Soy un estudiante de la carrera de Ingeniería en Sistemas Computacionales en busca de aprender
+      nuevas cosas en este gran mundo de la tecnología. A continuación incluyo pequeñas "utilidades" con los que podrás
+      entretenerte un rato o hasta tener la respuesta a tu tarea 😲😂</p>
+
 
 
     <section>
@@ -26,14 +26,6 @@
         <button type="button" onclick="checar()">Comprobar</button>
       </form>
       <p id="resultado"></p>
-
-      <h3>Utilidad: Cálculo de la velocidad angular</h3>
-      Periodo de revolución(segundos): <input id="rev" type="number" required /> <br>
-      <button type="button" id="calculaw" onclick="vel()">Calcular ω</button>
-      <div id="salida"></div>
-      <canvas id="circulo" width="600" height="600">
-        <p>Canvas</p>
-      </canvas>
       <h3>Utilidad: Tablas de multiplicar</h3>
       <p>Ingresa el número del que quieres la tabla</p>
       <input placeholder="Número" type="number" name="tab" id="tab" />
@@ -43,6 +35,33 @@
 
       <p id="tablademult"></p>
 
+      <h3>Utilidad: Factorial de un número</h3>
+      <p>Ingresa el número del que quieres conocer el factorial</p>
+      <input placeholder="Número" type="number" name="fact" id="fact" />
+      <br />
+      <button onclick="sFact()">Ver factorial</button>
+      <br />
+      <p id="factorial"></p>
+      <script type="text/javascript">
+        function sFact() {
+          var num = document.getElementById("fact").value;
+          var resp = "";
+          var rval = 1;
+          for (var i = 2; i <= num; i++) {
+            rval = rval * i;
+            resp = resp + " x " + i
+          }
+          resp = resp + "=" + rval;
+          document.getElementById("factorial").innerHTML = "El factorial del número " + num + " es 1" + resp;
+        }</script>
+
+      <h3>Utilidad: Cálculo de la velocidad angular</h3>
+      Periodo de revolución(segundos): <input id="rev" type="number" required /> <br>
+      <button type="button" id="calculaw" onclick="vel()">Calcular ω</button>
+      <div id="salida"></div>
+      <canvas id="circulo" width="600" height="600">
+        <p>Canvas</p>
+      </canvas>
       <script type="text/javascript">
         function tabladel() {
           var a = document.getElementById("tab").value;
